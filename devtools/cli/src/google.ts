@@ -102,6 +102,24 @@ export class GoogleOmniPlatform {
     };
   }
 
+  public getChromiumAndUpstreamCatalog(): Record<string, unknown> {
+    return {
+      chromiumGitiles: "https://chromium.googlesource.com/",
+      githubCollaboration:
+        "https://www.chromium.org/developers/github-collaboration/",
+      chromiumDashboard: "https://github.com/GoogleChrome/chromium-dashboard",
+      modernWebGuidance:
+        "https://github.com/GoogleChrome/modern-web-guidance-src",
+      googleOrgRepos: "https://github.com/orgs/google/repositories",
+      localDepotTools: "C:/src/depot_tools",
+      localChromiumSrc: "C:/src/chromium/src",
+      downstreamWorkflows: [
+        "Helium (quilt series)",
+        "Brave (chromium_src + Shields)",
+      ],
+    };
+  }
+
   public executeCommand(args: string[]): void {
     const cmd = args[0]?.toLowerCase() ?? "status";
 
@@ -123,6 +141,14 @@ export class GoogleOmniPlatform {
       }
       case "workspace": {
         console.log(JSON.stringify(this.getWorkspaceSummary(), null, 2));
+        break;
+      }
+      case "chromium":
+      case "depot-tools":
+      case "upstream": {
+        console.log(
+          JSON.stringify(this.getChromiumAndUpstreamCatalog(), null, 2),
+        );
         break;
       }
       case "cloud": {
