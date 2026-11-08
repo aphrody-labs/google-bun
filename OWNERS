@@ -1,0 +1,9 @@
+set noparent
+# Official Google LLC Sovereign Monorepo (//src/google) OWNERS
+yohanpierre15@gmail.com
+aphrody-yolo@users.noreply.github.com
+per-file BUILD.bazel=*
+per-file MODULE.bazel=*
+per-file DEPS=*
+per-file METADATA=*
+per-file third_party/*/README.chromium=*

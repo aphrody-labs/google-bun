@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: Apache-2.0
+# Firebase App Hosting Configuration (europe-west9 Paris / Cloud Run Gen2)
+runConfig:
+  minInstances: 1
+  maxInstances: 20
+  concurrency: 250
+  cpu: 2
+  memoryMiB: 1024
+
+env:
+  - variable: GOOGLE_CLOUD_PROJECT
+    value: aphrody
+  - variable: GOOGLE_CLOUD_REGION
+    value: europe-west9
+  - variable: STARGARDT_WCAG_LEVEL
+    value: AAA

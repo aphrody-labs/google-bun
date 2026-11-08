@@ -1,0 +1,24 @@
+Name: Oxc (The JavaScript Oxidation Compiler)
+Short Name: oxc
+URL: https://github.com/oxc-project/oxc
+License: MIT
+License File: LICENSE
+Version: HEAD
+Revision: HEAD
+Security Critical: yes
+Shipped: yes
+Forks:
+  - https://github.com/aphrody-labs/oxc
+  - https://github.com/aphrody-labs/tsrs
+  - https://github.com/aphrody-labs/tsgolint
+  - https://github.com/aphrody-labs/oxc-zed
+  - https://github.com/aphrody-labs/oxc-resolver
+  - https://github.com/yolo-rs/tsrs
+  - https://github.com/yolo-rs/tsgolint
+  - https://github.com/yolo-rs/oxc-zed
+  - https://github.com/yolo-rs/oxc-resolver
+
+Description:
+Collection of high-performance JavaScript/TypeScript tools written in Rust: parser, linter (oxlint),
+formatter (oxfmt), transformer, minifier, resolver (oxc-resolver), TypeScript 7 port (tsrs),
+type-aware linter (tsgolint), and Zed IDE extension (oxc-zed).

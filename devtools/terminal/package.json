@@ -1,0 +1,13 @@
+{
+  "name": "@google-bun/google-terminal",
+  "version": "2026.11.0",
+  "description": "Google Terminal Emulator & Shell Design System: Alacritty configuration, Google Material colors, prompt style guide & starter pack.",
+  "type": "module",
+  "main": "./src/index.ts",
+  "bin": {
+    "google-terminal": "./src/cli.ts"
+  },
+  "scripts": {
+    "test": "bun test"
+  }
+}

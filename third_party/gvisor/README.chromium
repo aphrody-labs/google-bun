@@ -1,0 +1,16 @@
+Name: gVisor
+Short Name: gvisor
+URL: https://github.com/google/gvisor
+License: Apache-2.0
+License File: LICENSE
+Version: HEAD
+Revision: HEAD
+Security Critical: yes
+Shipped: yes
+
+Description:
+Container runtime sandbox with user-space system call virtualization (Sentry) and isolated filesystem proxy (Gofer LISAFS).
+
+Local Modifications:
+- Consolidated into third_party/gvisor inside Google Bun.
+- Referenced by @google-bun/google-replica-skills, @google-bun/google-dream, and @google-bun/google-benchmark-sandbox.

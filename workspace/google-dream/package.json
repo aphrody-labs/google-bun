@@ -1,0 +1,8 @@
+{
+  "name": "@google-bun/google-dream",
+  "version": "2026.11.0",
+  "description": "Google Dream: From Guadeloupe to Mountain View & Google Cloud Paris. Stargardt Monocular Assistive WebGPU WGSL Shaders, Pure Bun YouTube DASH/HLS Engine, 20 TB Google Drive Chunked Sync, Official Google Repos (gVisor, Abseil, FlatBuffers, JAX) & GCA/RRK/Leadership/Googliness Readiness.",
+  "type": "module",
+  "main": "src/index.ts",
+  "sideEffects": false
+}

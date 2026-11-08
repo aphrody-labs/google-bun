@@ -1,0 +1,20 @@
+Name: gts (Google TypeScript Style)
+Short Name: gts
+URL: https://github.com/google/gts
+License: Apache-2.0
+License File: LICENSE
+Version: HEAD
+Revision: HEAD
+Security Critical: yes
+Shipped: yes
+Forks:
+  - https://github.com/aphrody-labs/gts
+  - https://github.com/yolo-rs/gts
+
+Description:
+Google's TypeScript style guide, configuration, linter, and automatic code fixer.
+
+Local Modifications:
+- Refactored into 100% Native Upstream Bun v1.4.4+ in packages/gts-bun (@google-bun/gts-bun).
+- Fused with Google Style Guides 2026 (TS, Shell, Go, Python, Rust, C++, Dart/Flutter, Angular/Wiz),
+  Upstream Bun (bun fmt, bun lint --type-aware, bun check TS 7 tsgo), and Oxc (oxlint/oxfmt/tsgolint).

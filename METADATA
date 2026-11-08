@@ -1,0 +1,22 @@
+# proto-file: devtools/metadata/metadata.proto
+# proto-message: MetaData
+
+name: "google-llc-sovereign-monorepo"
+description:
+  "Official Google LLC Sovereign Monorepo (//src/google) organizing Google Cloud (europe-west9 Paris, gVisor, Cloud Run),"
+  " Google Workspace (Drive 20TB Sync, YouTube Engine, Stargardt Assistive WebGPU),"
+  " and Google DevTools (google.exe CLI, Terminal, zx, GTS, GitHub Client) with Bazel 8 bzlmod and Upstream Bun v1.4.4+."
+
+third_party {
+  url {
+    type: GIT
+    value: "https://github.com/aphrody-labs/google-bun.git"
+  }
+  version: "2026.11.0"
+  license_type: NOTICE
+  last_upgrade_date {
+    year: 2026
+    month: 11
+    day: 8
+  }
+}

@@ -1,0 +1,38 @@
+steps:
+  # Étape 1 : Construction de l'image Docker souveraine
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      - "build"
+      - "-t"
+      - "europe-west9-docker.pkg.dev/$PROJECT_ID/aphrody-docker/google-bun:latest"
+      - "-f"
+      - "infra/docker/Dockerfile.google-sovereign"
+      - "."
+
+  # Étape 2 : Push vers Artifact Registry europe-west9 (Paris)
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      - "push"
+      - "europe-west9-docker.pkg.dev/$PROJECT_ID/aphrody-docker/google-bun:latest"
+
+  # Étape 3 : Déploiement sur Google Cloud Run avec gVisor execution environment
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: "gcloud"
+    args:
+      - "run"
+      - "deploy"
+      - "google-bun-sovereign"
+      - "--image=europe-west9-docker.pkg.dev/$PROJECT_ID/aphrody-docker/google-bun:latest"
+      - "--region=europe-west9"
+      - "--platform=managed"
+      - "--execution-environment=gen2"
+      - "--cpu=2"
+      - "--memory=2Gi"
+      - "--allow-unauthenticated"
+      - "--port=8080"
+
+images:
+  - "europe-west9-docker.pkg.dev/$PROJECT_ID/aphrody-docker/google-bun:latest"
+
+options:
+  logging: CLOUD_LOGGING_ONLY

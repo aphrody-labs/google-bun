@@ -1,0 +1,21 @@
+Name: go-github
+Short Name: go-github
+URL: https://github.com/google/go-github
+License: BSD-3-Clause
+License File: LICENSE
+Version: v69.2.0
+Revision: HEAD
+Security Critical: yes
+Shipped: yes
+Forks:
+  - https://github.com/aphrody-labs/go-github
+  - https://github.com/yolo-rs/go-github
+
+Description:
+Go library for accessing the GitHub API v3. Used across Aphrody GCP, Google Cloud Workflows,
+and the automated 24/7 indexing and repository watcher pipeline.
+
+Local Modifications:
+- Forked to aphrody-labs/go-github and yolo-rs/go-github.
+- Native integration with Aphrody GitHub PAT and fine-grained org administration tokens.
+- Wrapped by packages/github-client for seamless consumption from Bun via bun:ffi or child subprocess.

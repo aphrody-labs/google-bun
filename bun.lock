@@ -1,0 +1,61 @@
+{
+  "lockfileVersion": 2,
+  "configVersion": 1,
+  "workspaces": {
+    "": {
+      "name": "@google-llc/monorepo",
+    },
+    "cloud/gcp-client": {
+      "name": "@google-bun/gcp-client",
+      "version": "2026.11.0",
+    },
+    "devtools/cli": {
+      "name": "@google-llc/cli",
+      "version": "2026.11.0",
+    },
+    "devtools/github-client": {
+      "name": "@google-bun/github-client",
+      "version": "2026.11.0",
+    },
+    "devtools/gts": {
+      "name": "@google-bun/gts-bun",
+      "version": "2026.11.0",
+      "bin": {
+        "gts-bun": "./src/cli.ts",
+      },
+      "dependencies": {
+        "@google-bun/zx-bun": "workspace:*",
+      },
+    },
+    "devtools/terminal": {
+      "name": "@google-bun/google-terminal",
+      "version": "2026.11.0",
+      "bin": {
+        "google-terminal": "./src/cli.ts",
+      },
+    },
+    "devtools/zx": {
+      "name": "@google-bun/zx-bun",
+      "version": "2026.11.0",
+    },
+    "workspace/google-dream": {
+      "name": "@google-bun/google-dream",
+      "version": "2026.11.0",
+    },
+  },
+  "packages": {
+    "@google-bun/gcp-client": ["@google-bun/gcp-client@workspace:cloud/gcp-client"],
+
+    "@google-bun/github-client": ["@google-bun/github-client@workspace:devtools/github-client"],
+
+    "@google-bun/google-dream": ["@google-bun/google-dream@workspace:workspace/google-dream"],
+
+    "@google-bun/google-terminal": ["@google-bun/google-terminal@workspace:devtools/terminal"],
+
+    "@google-bun/gts-bun": ["@google-bun/gts-bun@workspace:devtools/gts"],
+
+    "@google-bun/zx-bun": ["@google-bun/zx-bun@workspace:devtools/zx"],
+
+    "@google-llc/cli": ["@google-llc/cli@workspace:devtools/cli"],
+  }
+}

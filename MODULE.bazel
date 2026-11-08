@@ -1,0 +1,14 @@
+# MODULE.bazel for //src/google (Official Google LLC Sovereign Monorepo)
+# Bazel 8.0+ / bzlmod configuration
+
+module(
+    name = "google_sovereign_monorepo",
+    version = "2026.11.0",
+    compatibility_level = 1,
+)
+
+bazel_dep(name = "rules_cc", version = "0.0.17")
+bazel_dep(name = "rules_rust", version = "0.56.0")
+bazel_dep(name = "rules_go", version = "0.51.0")
+bazel_dep(name = "bazel_skylib", version = "1.7.1")
+bazel_dep(name = "platforms", version = "0.0.10")

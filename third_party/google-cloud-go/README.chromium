@@ -1,0 +1,21 @@
+Name: google-cloud-go
+Short Name: google-cloud-go
+URL: https://github.com/googleapis/google-cloud-go
+License: Apache-2.0
+License File: LICENSE
+Version: HEAD
+Revision: HEAD
+Security Critical: yes
+Shipped: yes
+Forks:
+  - https://github.com/aphrody-labs/google-cloud-go
+  - https://github.com/yolo-rs/google-cloud-go
+
+Description:
+Google Cloud client libraries for Go. Provides typed clients for Cloud Storage, Cloud Spanner,
+BigQuery, Secret Manager, Cloud Run, Pub/Sub, Vertex AI, and Cloud DNS.
+
+Local Modifications:
+- Forked to aphrody-labs/google-cloud-go and yolo-rs/google-cloud-go.
+- Native gRPC / Protobuf transport with Application Default Credentials (ADC) and automatic keyless service account rotation.
+- Consumed by packages/gcp-client in Google Bun.

@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: Apache-2.0
+# Google Cloud Build Pipeline for Google-Bun (Rust WASM/SIMD + Go 1.27 Gateway + Bun v1.4.4+)
+steps:
+  - name: "rust:1.85-slim"
+    id: "rust-simd-and-wasm"
+    entrypoint: "bash"
+    args:
+      - "-c"
+      - "rustup target add wasm32-unknown-unknown && cargo test --workspace && cargo build --release --target wasm32-unknown-unknown -p google_bun_wasm --target-dir ./target-wasm"
+
+  - name: "golang:1.24-alpine"
+    id: "go-paris-gateway"
+    dir: "go/cloudrun_paris_gateway"
+    entrypoint: "sh"
+    args:
+      - "-c"
+      - "go test -v ./... && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags='-s -w' -o /workspace/google-bun-paris-gateway ."
+
+  - name: "oven/bun:1.4"
+    id: "bun-pipeline-and-docs"
+    entrypoint: "sh"
+    args:
+      - "-c"
+      - "bun install --frozen-lockfile && bun lint && bun check && bun test && bun run scripts/build-docs-pages.ts"
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  machineType: "E2_HIGHCPU_8"

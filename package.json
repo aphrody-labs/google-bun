@@ -1,0 +1,26 @@
+{
+  "name": "@google-llc/monorepo",
+  "version": "2026.11.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.4.4-canary.1",
+  "license": "Apache-2.0",
+  "description": "Official Google LLC Sovereign Monorepo (//src/google): Cloud (europe-west9, gVisor), Workspace (Drive 20TB, YouTube, Stargardt), and DevTools (google CLI, Terminal, zx, GTS)",
+  "workspaces": [
+    "cloud/gcp-client",
+    "workspace/google-dream",
+    "devtools/cli",
+    "devtools/terminal",
+    "devtools/zx",
+    "devtools/gts",
+    "devtools/github-client"
+  ],
+  "scripts": {
+    "google": "bun run devtools/cli/src/google.ts",
+    "test": "bun test cloud workspace devtools",
+    "test:go": "cd cloud/gateway && go test ./...",
+    "check": "bun check devtools/cli/src/google.ts cloud/gcp-client/src/index.ts workspace/google-dream/src/index.ts devtools/terminal/src/index.ts devtools/zx/src/index.ts devtools/gts/src/index.ts devtools/github-client/src/index.ts",
+    "fmt": "bun fmt cloud workspace devtools",
+    "lint": "bun lint cloud workspace devtools"
+  }
+}

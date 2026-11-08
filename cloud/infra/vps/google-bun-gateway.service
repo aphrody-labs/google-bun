@@ -1,0 +1,22 @@
+[Unit]
+Description=Google-Bun Sovereign Go + Rust SIMD Gateway (WireGuard Mesh 10.200.77.0/24)
+After=network-online.target wg-quick@wg0.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/google-bun
+Environment=PORT=8095
+Environment=GOOGLE_CLOUD_PROJECT=aphrody
+Environment=GOOGLE_CLOUD_REGION=europe-west9
+ExecStart=/opt/google-bun/google-bun-paris-gateway
+Restart=always
+RestartSec=2
+LimitNOFILE=1048576
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=read-only
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,46 @@
+# Root BUILD.bazel for //src/google (Google LLC Monorepo Layout)
+# SPDX-License-Identifier: Apache-2.0
+
+package(default_visibility = ["//visibility:public"])
+
+licenses(["notice"])  # Apache-2.0
+
+exports_files([
+    "LICENSE",
+    "NOTICE",
+    "OWNERS",
+    "METADATA",
+    "DEPS",
+    "package.json",
+    "tsconfig.json",
+])
+
+filegroup(
+    name = "cloud_sources",
+    srcs = glob([
+        "cloud/**/*.go",
+        "cloud/**/*.ts",
+        "cloud/**/*.yaml",
+    ]),
+)
+
+filegroup(
+    name = "workspace_sources",
+    srcs = glob([
+        "workspace/**/*.ts",
+    ]),
+)
+
+filegroup(
+    name = "devtools_sources",
+    srcs = glob([
+        "devtools/**/*.ts",
+    ]),
+)
+
+filegroup(
+    name = "g3doc_sources",
+    srcs = glob([
+        "g3doc/**/*.md",
+    ]),
+)

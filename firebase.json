@@ -1,0 +1,47 @@
+{
+  "hosting": {
+    "public": "dist-pages",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "headers": [
+      {
+        "source": "**/*.wasm",
+        "headers": [
+          { "key": "Content-Type", "value": "application/wasm" },
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
+          }
+        ]
+      },
+      {
+        "source": "**/*.wgsl",
+        "headers": [
+          { "key": "Content-Type", "value": "text/wgsl; charset=utf-8" }
+        ]
+      },
+      {
+        "source": "/llms.txt",
+        "headers": [
+          { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
+          { "key": "Access-Control-Allow-Origin", "value": "*" }
+        ]
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/api/stack-decision",
+        "run": {
+          "serviceId": "google-bun-paris-gateway",
+          "region": "europe-west9"
+        }
+      },
+      {
+        "source": "/healthz",
+        "run": {
+          "serviceId": "google-bun-paris-gateway",
+          "region": "europe-west9"
+        }
+      }
+    ]
+  }
+}

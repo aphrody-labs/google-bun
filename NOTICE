@@ -1,0 +1,14 @@
+Google Bun Sovereign Workspace
+Copyright 2026 Aphrody Labs / Yolo Authors
+
+This product includes software developed by Google LLC, the Chromium Project,
+the Oxc Project, Vercel Labs, and the Bun Project (Oven-sh).
+
+Third-party software included or referenced:
+- Chromium / depot_tools: https://chromium.googlesource.com/chromium/tools/depot_tools.git
+- gVisor Container Kernel Sandbox: https://github.com/google/gvisor.git
+- Google Cloud Client Libraries (Go): https://github.com/googleapis/google-cloud-go.git
+- Google TypeScript Style (gts): https://github.com/google/gts.git
+- Google zx: https://github.com/google/zx.git
+- Oxc Compiler & Linter Suite: https://github.com/oxc-project/oxc.git
+- Upstream Bun Runtime: https://github.com/oven-sh/bun.git

@@ -1,0 +1,28 @@
+Name: Vercel Labs AI Agent & Generative UI Suite
+Short Name: vercel-labs
+URL: https://github.com/orgs/vercel-labs/repositories
+License: Apache-2.0 / MIT
+Version: HEAD
+Revision: HEAD
+Security Critical: yes
+Shipped: yes
+Forks:
+  - https://github.com/aphrody-labs/agent-browser
+  - https://github.com/aphrody-labs/skills
+  - https://github.com/aphrody-labs/json-render
+  - https://github.com/aphrody-labs/agent-desktop
+  - https://github.com/aphrody-labs/native
+  - https://github.com/aphrody-labs/scriptc
+  - https://github.com/yolo-rs/skills
+  - https://github.com/yolo-rs/json-render
+  - https://github.com/yolo-rs/agent-desktop
+  - https://github.com/yolo-rs/native
+  - https://github.com/yolo-rs/scriptc
+
+Description:
+Top-starred Vercel Labs repositories fused into Google Bun:
+- agent-browser: Headless browser automation protocol for AI agents.
+- skills: Composable SKILL.md agent capability router.
+- json-render: Streaming generative UI JSON schema compiled to Google M3, Wiz, Compose, Flutter & GPUI.
+- agent-desktop: Native computer-use desktop automation.
+- native & scriptc: Native desktop toolkit and TypeScript-to-Native compiler patterns.

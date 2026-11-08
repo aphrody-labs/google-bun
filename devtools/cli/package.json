@@ -1,0 +1,11 @@
+{
+  "name": "@google-llc/cli",
+  "version": "2026.11.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "description": "Google LLC Sovereign CLI (google.exe) for Workspace, Cloud (europe-west9), Chromium, AOSP, and DevTools",
+  "exports": {
+    ".": "./src/google.ts"
+  }
+}

@@ -1,0 +1,20 @@
+Name: gogcli
+Short Name: gogcli
+URL: https://github.com/openclaw/gogcli
+License: MIT
+License File: LICENSE
+Version: HEAD
+Revision: HEAD
+Security Critical: yes
+Shipped: yes
+Forks:
+  - https://github.com/aphrody-labs/gogcli
+  - https://github.com/yolo-rs/gogcli
+
+Description:
+GOG.com CLI downloader and manifest parser written in Go. Used for digital archive verification,
+game asset extraction, and preservation of Google & Inazuma Eleven related catalog data.
+
+Local Modifications:
+- Forked to aphrody-labs/gogcli and yolo-rs/gogcli.
+- Enhanced with Bun subprocess integration and token synchronization for offline storage in Google Cloud Storage.

@@ -1,0 +1,23 @@
+Name: zx
+Short Name: zx
+URL: https://github.com/google/zx
+License: Apache-2.0
+License File: LICENSE
+Version: HEAD
+Revision: HEAD
+Security Critical: yes
+Shipped: yes
+Forks:
+  - https://github.com/aphrody-labs/zx
+  - https://github.com/yolo-rs/zx
+
+Description:
+A tool for writing better scripts, originally developed by Google. Provides a concise syntax
+for executing child processes and managing pipelines.
+
+Local Modifications:
+- Forked to aphrody-labs/zx and yolo-rs/zx.
+- Native re-architecture for Upstream Bun (v1.4.4+) via packages/zx-bun:
+  - Powered by Bun.$ with zero-overhead native streams and pipe redirection.
+  - Zero Node.js or child_process dependencies.
+  - Native Bun.Glob, Bun.file, chalk/ansis styling, and Google Shell Design System tokens.

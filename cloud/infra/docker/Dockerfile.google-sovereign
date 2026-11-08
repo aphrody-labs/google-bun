@@ -1,0 +1,71 @@
+# Dockerfile souverain pour environnement de développement et d'intégration Google
+# Intègre Rust 2024, Go 1.24, Bun v1.4.4+, Python uv, Google depot_tools et gVisor runsc
+
+FROM debian:bookworm-slim AS base
+
+ENV DEBIAN_FRONTEND=noninteractive \
+    TZ=UTC \
+    LANG=C.UTF-8 \
+    LC_ALL=C.UTF-8 \
+    PATH="/root/.cargo/bin:/usr/local/go/bin:/root/.local/bin:/root/.bun/bin:/opt/depot_tools:${PATH}"
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    bash \
+    ca-certificates \
+    curl \
+    git \
+    git-lfs \
+    build-essential \
+    pkg-config \
+    libssl-dev \
+    clang \
+    lld \
+    ninja-build \
+    python3 \
+    python3-pip \
+    python3-venv \
+    unzip \
+    tar \
+    xz-utils \
+    jq \
+    ripgrep \
+    procps \
+    && rm -rf /var/lib/apt/lists/*
+
+# 1. Upstream Bun v1.4.4+
+RUN curl -fsSL https://bun.sh/install | bash -s "bun-v1.4.4"
+
+# 2. Rust 2024 via rustup
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain stable \
+    && rustup component add rustfmt clippy \
+    && rustup target add wasm32-unknown-unknown
+
+# 3. Go 1.24
+RUN curl -fsSL https://go.dev/dl/go1.24.0.linux-amd64.tar.gz | tar -C /usr/local -xzf -
+
+# 4. Python uv
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# 5. Google depot_tools (gclient, gn, ninja, git cl)
+RUN git clone --depth 1 https://chromium.googlesource.com/chromium/tools/depot_tools.git /opt/depot_tools \
+    && python3 -m compileall /opt/depot_tools > /dev/null 2>&1 || true
+
+# 6. gVisor runsc (sandbox sécurisé)
+RUN curl -fsSL https://storage.googleapis.com/gvisor/releases/release/latest/x86_64/runsc -o /usr/local/bin/runsc \
+    && chmod +x /usr/local/bin/runsc \
+    && curl -fsSL https://storage.googleapis.com/gvisor/releases/release/latest/x86_64/containerd-shim-runsc-v1 -o /usr/local/bin/containerd-shim-runsc-v1 \
+    && chmod +x /usr/local/bin/containerd-shim-runsc-v1
+
+WORKDIR /workspace
+
+# Configuration du workspace pour Google Bun
+COPY . /workspace
+
+RUN bun install --frozen-lockfile || bun install
+
+EXPOSE 8080 8787 8789
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:8080/health || exit 1
+
+ENTRYPOINT ["bun", "run", "packages/google-unified-fabric/src/index.ts"]
