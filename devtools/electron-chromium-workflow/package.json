@@ -1,0 +1,11 @@
+{
+  "name": "@google-llc/electron-chromium-workflow",
+  "version": "2026.11.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "description": "Native Bun implementation of Electron (@electron/build-tools, patches/config.json, roller, Node+V8+BoringSSL Co-ABI) and CEF (automate-git.py, patch.cfg) workflows for Chromium",
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}

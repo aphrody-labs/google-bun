@@ -13,7 +13,8 @@
     "devtools/terminal",
     "devtools/zx",
     "devtools/gts",
-    "devtools/github-client"
+    "devtools/github-client",
+    "devtools/electron-chromium-workflow"
   ],
   "scripts": {
     "google": "bun run devtools/cli/src/google.ts",
