@@ -82,11 +82,11 @@ export class GoogleOmniPlatform {
         latencyMs: 0.3,
         details: {
           aiPillar:
-            "C:/src/yolo-ai (carbon, gcloud-learn, benchmark-ml-engine)",
+            "yolo-ai (carbon, gcloud-learn, benchmark-ml-engine)",
           webPillar:
-            "C:/src/yolo-web (google-crawler, google-indexer, modern-web-humanizer)",
+            "yolo-web (google-crawler, google-indexer, modern-web-humanizer)",
           runtimePillar:
-            "C:/src/yolo-bun (yolo-bun:lighthouse, yolo-bun:googleapis, yolo-bun:google-stack)",
+            "yolo-bun (yolo-bun:lighthouse, yolo-bun:googleapis, yolo-bun:google-stack)",
         },
       },
     ];
